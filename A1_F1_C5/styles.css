@@ -1,9 +1,13 @@
 @import "normalize.css";
+@import "animations.css";
 
 :root {
     --primary-color: #1b8e99;
+    --primary-color-rgb: 27, 142, 153;
     --primary-hover-color: #92c9ce;
+    --primary-hover-color-rgb: 146, 201, 206;
     --secondary-color: #660000;
+    --secondary-color-rgb: 102, 0, 0;
 }
 
 body {
@@ -66,6 +70,12 @@ body {
     min-height: 100%;
 }
 
+.navbar ul li:hover {
+    transform: scale(1.10, 1.25);
+    -webkit-animation: scale-up-navlink 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+    animation: scale-up-navlink 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+}
+
 .navbar.navbar-primary ul li:hover {
     background-color: var(--primary-hover-color);
     color: white;
@@ -74,7 +84,6 @@ body {
 .navbar.navbar-secondary ul li:hover {
     background-color: white;
     color: var(--secondary-color);
-
 }
 
 #banner {
@@ -87,6 +96,78 @@ body {
     height: 100%;
 }
 
-#loja {
-    height: 376px;
+.card-container {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.card {
+    width: 300px;
+}
+
+.card.card-primary {
+    border:  1px solid var(--primary-color);
+}
+
+.card.card-secondary {
+    border: 1px solid var(--secondary-color);
+}
+
+.card.card-primary .title {
+    color: var(--primary-color);
+}
+
+.card.card-secondary .title {
+    color: var(--secondary-color);
+}
+
+#loja .card {
+    /* Exercício consta 376px, porém está errado e fica desagradável a visualização da imagem */
+    height: 320px;
+}
+
+#loja .card .title {
+    font-size: 16px;
+    text-align: center;
+    margin: 3px;
+    padding: 5px 0;
+}
+
+#loja .card.card-primary .title {
+    background-color: rgba(var(--primary-color-rgb), 0.3);
+}
+
+#loja .card.card-secondary .title {
+    background-color: rgba(var(--secondary-color-rgb), 0.3);
+}
+
+#servicos .card .title {
+    font-family: Tahoma, sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+#servicos .card .footer {
+    height: 10px;
+}
+
+#servicos .card.card-primary .footer {
+    background-color: var(--primary-color);
+}
+
+#servicos .card.card-secondary .footer {
+    background-color: var(--secondary-color);
+}
+
+#servicos .card .banner {
+    /* Exercício consta 400px, porém está errado e fica desagradável a visualização da imagem */
+    height: 150px;
+}
+
+#servicos .card .banner img {
+    width: 100%;
+    height: 100%;
 }
